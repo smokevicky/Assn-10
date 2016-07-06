@@ -1,0 +1,472 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Jyoti</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://iamrohit.in/lab/js/location.js"></script>
+
+    <!--Custom Files-->
+
+    <link rel="stylesheet" href="./Assn10.css">
+    <script src="./Assn10.js"></script>
+
+</head>
+<body class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2>Registration form</h2>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" action="#" id="frm" method="post">
+
+                <div class="row">
+                    <div class="col-sm-2 text">
+                        <h4><b>Personal Details</b></h4>
+                    </div>
+                    <div class="col-sm-10">
+                        <hr />
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group has-feedback col-sm-6" id="fname-Grp">
+                        <div class="col-sm-2 text">
+                            First Name :
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="text" id="fname" class="form-control" placeholder="Enter First Name and Middle Name (if any)" autocomplete="off" maxlength="30" />
+                            <span id="fname-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="fname-Val">
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback col-sm-6" id="lname-Grp">
+                        <div class="col-sm-2 text">
+                            Last Name :
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="text" id="lname" class="form-control" placeholder="Enter Last Name" autocomplete="off" maxlength="20" />
+                            <span id="lname-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="lname-Val">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group has-feedback col-sm-6" id="dob-Grp">
+                        <div class="col-sm-2 text">
+                            DOB :
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="date" id="dob" class="form-control" placeholder="Enter DOB" />
+                            <span id="dob-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="dob-Val">
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback col-sm-6" id="gender-Grp">
+                        <div class="col-sm-2 text">
+                            Gender :
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="btn-group" data-toggle="buttons" name="genderDiv">
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="gender" id="male" autocomplete="off" value="male"> Male
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="gender" id="female" autocomplete="off" value="female"> Female
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="gender" id="others" autocomplete="off" value="others"> Others
+                                </label>
+                            </div>
+                            <span id="gender-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="gender-Val">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group has-feedback col-sm-6" id="email-Grp">
+                        <div class="col-sm-2 text">
+                            Email :
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="email" id="email" class="form-control" placeholder="Enter first part of E-mail" autocomplete="off" maxlength="30" />
+                            <span id="email-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback col-sm-6" id="email2-Grp">
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sizing-addon2">@</span>
+                                <input type="email" id="email2" class="form-control" placeholder="Enter 2nd part of E-mail" autocomplete="off" maxlength="30" />
+                                <span id="email2-Glyph" class="glyphicon form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 val" id="email-Val">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div id="popover-content" class="hidden">
+                        <div>
+                            1. Minimum 8 characters <br />
+                            2. A capital alphabet (A - Z) <br />
+                            3. A small alphabet (a - z)<br />
+                            4. A digit (0 - 9) <br />
+                            5. A symbol (@, #, $, &, !) <br />
+                            6. Maximum 30 characters
+                        </div>
+                    </div>
+
+                    <div id="popover-title" class="hidden">
+                        <b style="color:white">A Password must contain the following</b>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group has-feedback col-sm-6" id="pwd-Grp">
+                        <div class="col-sm-2 text">
+                            Password :
+                            <a data-placement="bottom" id="popover">&#128161;</a>
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="password" id="pwd" class="form-control" placeholder="Enter Password" autocomplete="off" maxlength="30" />
+                            <span id="pwd-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="pwd-Val">
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback col-sm-6" id="pwdc-Grp">
+                        <div class="col-sm-2 text">
+                            Confirm Password :
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="password" id="pwdc" class="form-control" placeholder="Renter Password to confirm" autocomplete="off" maxlength="30" />
+                            <span id="pwdc-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="pwdc-Val">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+
+                    <div class="form-group has-feedback col-sm-6">
+                        <div class="col-sm-2 text">
+                            Address :
+                        </div>
+                        <div class="col-sm-10" id="add1-Grp">
+                            <input type="text" id="add1" class="form-control" placeholder="Enter AddressLine 1" autocomplete="off" maxlength="100" />
+                            <span id="add1-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group has-feedback col-sm-6" id="add2-Grp">
+                        <div class="col-sm-9">
+                            <input type="text" id="add2" class="form-control" placeholder="Enter AddressLine 2 (Optional)" autocomplete="off" maxlength="100" />
+                            <span id="add2-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="add-Val">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group has-feedback col-sm-6" id="zip-Grp">
+                        <div class="col-sm-2 text">
+                            Zip Code :  
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="number" id="zip" class="form-control" placeholder="Enter Zip Code" autocomplete="off" max="6" />
+                            <span id="zip-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="zip-Val">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group has-feedback col-sm-4" id="country-Grp">
+                        <div class="col-sm-3 text" id="country-Grp">
+                            Select Location :
+                        </div>
+                        <div class="col-sm-9">
+                            <select name="country" class="countries form-control col-sm-3 " id="country">
+                                <option name="countryOption" value="">Select Country</option>
+                            </select>
+                            <span id="country-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>                        
+                    </div>
+
+                    <div class="form-group has-feedback col-sm-3">
+                        <div class="col-sm-12" id="state-Grp">
+                            <select name="state" class="states form-control col-sm-3" id="state">
+                                <option value="">Select State</option>
+                            </select>
+                            <span id="state-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback col-sm-5">                      
+                        <div class="col-sm-9" id="city-Grp">
+                            <select name="city" class="cities form-control col-sm-3" id="city">
+                                <option value="">Select City</option>
+                            </select>
+                            <span id="city-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="city-Val">
+                            
+                        </div>
+                    </div>
+                </div>             
+                
+                <div class="row">
+                    <div class="form-group has-feedback col-sm-6" id="ph1-Grp">
+                        <div class="col-sm-2 text">
+                            Phone No 1 :
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="number" id="ph1" class="form-control" placeholder="Enter Primary Phone Number" autocomplete="off" />
+                            <span id="ph1-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="ph1-Val">
+                            
+                        </div>
+                    </div>
+                     
+                    <div class="form-group has-feedback col-sm-6" id="ph2-Grp">
+                        <div class="col-sm-2 text">
+                            Phone No 2 :
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="number" id="ph2" class="form-control" placeholder="Enter Secondary Phone Number" autocomplete="off" />
+                            <span id="ph2-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="ph2-Val">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-2 text">
+                        <h4><b>Educational Details</b></h4>
+                    </div>
+                    <div class="col-sm-10">
+                        <hr />
+                        <br />
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group has-feedback col-sm-6" id="10th-Grp">
+                        <div class="col-sm-2 text">
+                            10th CGPA :
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sizing-addon2">Max 10.00</span>
+                                <input type="number" id="10th" class="form-control" placeholder="Enter 10th Marks (CGPA)" autocomplete="off" />                                
+                            </div>
+                            <span id="10th-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="10th-Val">
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback col-sm-6" id="12th-Grp">
+                        <div class="col-sm-2 text">
+                            12th Marks :
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sizing-addon2">Max 100%</span>
+                                <input type="number" id="12th" class="form-control" placeholder="Enter 12th Marks (in %)" max="100" autocomplete="off" />
+                            </div>                            
+                            <span id="12th-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="12th-Val">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group has-feedback col-sm-6" id="grad-Grp">
+                        <div class="col-sm-2 text">
+                            Graduation Marks :
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sizing-addon2">Max 10.00</span>
+                                <input type="number" id="grad" class="form-control" placeholder="Enter Graduation Marks (CGPA)" autocomplete="off" />
+                            </div>
+                            <span id="grad-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="grad-Val">
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback col-sm-6" id="degree-Grp">
+                        <div class="col-sm-2 text">
+                            Degree Marks :
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sizing-addon2">Max 10.00</span>
+                                <input type="number" id="degree" class="form-control" placeholder="Enter Degree Marks (CGPA)" max="100" autocomplete="off" />
+                            </div>
+                            <span id="degree-Glyph" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3 val" id="degree-Val">
+                            
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="row" id="btns">
+                    <div class="col-sm-11">
+                        <input type="reset" class="btn btn-warning" id="resetForm" />
+                        <input type="submit" class="btn btn-primary" id="submitForm" />
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="panel-footer hidden" id="footer">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <h2>Your Registration Details :</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        Full Name :
+                    </div>
+                    <div class="col-sm-10 text-capitalize" id="name-Text">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        Date Of Birth :
+                    </div>
+                    <div class="col-sm-10 text-capitalize" id="dob-Text">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        Gender :
+                    </div>
+                    <div class="col-sm-10 text-capitalize" id="gender-Text">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        E-Mail :
+                    </div>
+                    <div class="col-sm-10 text-lowercase" id="email-Text">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        Complete Address :
+                    </div>
+                    <div class="col-sm-5 text-capitalize" id="add-Text">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        Location :
+                    </div>
+                    <div class="col-sm-8 text-capitalize" id="loc-Text">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        Phone Number(s) :
+                    </div>
+                    <div class="col-sm-5 text-capitalize" id="ph-Text">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        10th CGPA :
+                    </div>
+                    <div class="col-sm-10 text-capitalize" id="10th-Text">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        12th Marks :
+                    </div>
+                    <div class="col-sm-10 text-capitalize" id="12th-Text">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        Graduation CGPA :
+                    </div>
+                    <div class="col-sm-10 text-capitalize" id="grad-Text">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        Degree CGPA :
+                    </div>
+                    <div class="col-sm-10 text-capitalize" id="degree-Text">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

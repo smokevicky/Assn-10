@@ -1,0 +1,67 @@
+   
+    body{
+        font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        background-color:gray;
+    }
+    .panel-footer{
+        background-color:lightskyblue;            
+        font-size:20px;
+    }
+    .panel{
+        margin-top:10px;
+    }
+    .form-group{         
+        align-items: center; 
+    }
+    .text{
+        text-align:left;
+            
+    }
+    .val{
+        text-align:right;
+    }
+    @media (min-width: 768px) {
+        .text {
+                text-align:right;
+        }
+        .val{
+            text-align:left;
+        }
+    }
+    .success{
+        color:green;
+    }
+    .error{
+        color:red;
+    }
+    .popover-title{
+        background: rgba(255, 0, 0, 0.68);
+    }
+    .popover {
+        /*background:#000000;*/
+        width:250px;    
+    }
+    a{
+        color:orange;
+    }
+    a:hover{
+        color:yellowgreen;
+        text-decoration:none;
+        cursor:help;
+    }
+    hr {
+        border-top: 1px solid #337ab7;
+    }
+    #btns{
+        text-align:right;
+    }
+    #submitForm{
+        width:112px;
+    }
+    .btn-warning{
+        width:80px;
+    }
+    #rightLink{
+        text-align:right;            
+    }
+  
